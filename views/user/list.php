@@ -65,14 +65,14 @@
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <span class="glyphicon glyphicon-th-list"></span>
-                                    <span>Brand Management</span>
+                                    <span>User Management</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12 add-product">
-                    <a class="btn btn-primary" href="/eshop/brand/create">Add new brand</a>
+                    <a class="btn btn-primary" href="/eshop/brand/create">Add new user</a>
                 </div>
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-bordered">
@@ -83,13 +83,19 @@
                             <th>Description</th>
                             <th>Action</th>
                         </tr>
-                        <?php foreach($data as $brand) :?>
+                        <?php foreach($data as $user) :?>
                             <tr>
                                 <td><input type="checkbox" name="checkbox"></td>
-                                <td><?php echo $brand->getName(); ?></td>
-                                <td><?php echo $brand->getCode(); ?></td>
-                                <td><?php echo $brand->getDescription(); ?></td>
-                                <td><a class="btn btn-info" href="/eshop/brand/edit/<?= $brand->getId() ?>">Edit</a></td>
+                                <td><?php echo $user->getName(); ?></td>
+                                <td><?php echo $user->getPassword(); ?></td>
+                                <td><?php echo $user->getRole(); ?></td>
+                                <td><?php echo $user->getEmail(); ?></td>
+                                <td><?php echo $user->getAddress(); ?></td>
+                                <td><?php echo $user->getCity(); ?></td>
+                                <td><?php echo $user->getBirthday(); ?></td>
+                                <td><?php echo $user->getPhone(); ?></td>
+                                <td><?php echo $user->getStatus(); ?></td>
+                                <td><a class="btn btn-info" href="/eshop/brand/edit/<?= $user->getId() ?>">Edit</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </table>
