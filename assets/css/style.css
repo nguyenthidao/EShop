@@ -1,0 +1,66 @@
+body{
+
+}
+a{
+    cursor: pointer;
+}
+header{
+    height: 100px;
+    background-color: #232f3e;
+    color: #fff;
+    height: 100px;
+}
+nav .menu li{
+    display: inline-block;
+}
+nav .menu li a{
+    color: #ccc;
+    padding: 10px;
+}
+nav .menu li a:hover{
+    text-decoration: underline;
+}
+
+.search{
+    margin-top: 20px;
+}
+
+.menu{
+    padding-top: 15px;
+}
+
+.cart{
+    padding-top: 15px;
+}
+
+.eshop-introduce{
+    background-color: #232f3e;
+}
+
+.about-us{
+    color: #fff;
+}
+
+.about-us li{
+    list-style: none;
+}
+
+.about-us li a, .copy-right{
+    color: #ddd;
+}
+
+.back-to-top{
+    background-color: #37475a;
+}
+.back-to-top p a{
+    color: #fff;
+}
+.back-to-top p a:hover{
+    text-decoration: none;
+}
+.logo img{
+    height: 20px;
+}
+footer{
+    background-color: #131a22;
+}
