@@ -38,19 +38,19 @@
         <section class="col-lg-10">
             <div class="row">
                 <div class="col-lg-7">
-                    <h3 class="text-center">Create a brand</h3>
+                    <h3 class="text-center">Create a user</h3>
                 </div>
             </div>
             <div class="row">
-                <form class="col-lg-12" method="POST" action="/eshop/brand/store">
+                <form class="col-lg-12" method="POST" action="/eshop/user/store">
                     <div class="row">
                         <div class="form-group col-lg-7">
                             <label for="name">Name</label>
                             <input type="text" name="name" id="name" class="form-control">
-                            <label for="code">code</label>
-                            <input type="text" name="code" id="code" class="form-control">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control"  rows="20" cols="50"></textarea>
+                            <label for="code">Password</label>
+                            <input type="text" name="password" id="password" class="form-control">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" class="form-control">
                         </div>
                     </div>
                     <div class="row">
