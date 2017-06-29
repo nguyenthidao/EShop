@@ -48,13 +48,10 @@ class BrandDb extends Connection
         $name = $brand->getName();
         $code = $brand->getCode();
         $description = $brand->getDescription();
-        $findResult = $this->find($name);
 
-        if($findResult == true){
-            $db = $this->connect();
-            $query = "UPDATE brands SET name = '$name', code = '$code', description = '$description' WHERE id = '$id'";
-            $result = $db->exec($query);
-        }
+        $db = $this->connect();
+        $query = "UPDATE brands SET name = '$name', code = '$code', description = '$description' WHERE id = '$id'";
+        $result = $db->exec($query);
 
         return $result > 0;
     }
@@ -66,6 +63,25 @@ class BrandDb extends Connection
         $result = $db->query($query);
 
         return $result->rowCount() > 0;
+    }
+
+    public function findById($id)
+    {
+        $db = $this->connect();
+        $query = "SELECT * FROM brands WHERE id = '$id'";
+        $result = $db->query($query)->fetch();
+
+        if(count($result) > 0){
+            $code = $result['code'];
+            $name = $result['name'];
+            $description = $result['description'];
+
+            $brand = new Brand($id, $code, $name, $description);
+
+            return $brand;
+        }
+
+        return null;
     }
 }
 
