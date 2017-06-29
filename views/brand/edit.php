@@ -1,3 +1,4 @@
+<?php $brand = $data; ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -42,15 +43,15 @@
                 </div>
             </div>
             <div class="row">
-                <form class="col-lg-12" method="POST" action="/eshop/brand/update/">
+                <form class="col-lg-12" method="POST" action="/eshop/brand/update/<?= $brand->getId()?>">
                     <div class="row">
                         <div class="form-group col-lg-7">
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control" value="<?= $brand->getName() ?>">
                             <label for="code">code</label>
-                            <input type="text" name="code" id="code" class="form-control">
+                            <input type="text" name="code" id="code" class="form-control" value="<?= $brand->getCode() ?>">
                             <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control"  rows="20" cols="50"></textarea>
+                            <textarea name="description" id="description" class="form-control"  rows="20" cols="50" value="<?= $brand->getDescription() ?>"></textarea>
                         </div>
                     </div>
                     <div class="row">

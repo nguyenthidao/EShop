@@ -5,7 +5,7 @@ class Connection
     {
         $url = "mysql:host=localhost;dbname=eshop;charset=utf8";
         $userName = "root";
-        $password = "password";
+        $password = "";
 
         try{
             $pdo = new PDO($url, $userName, $password);

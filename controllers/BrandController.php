@@ -40,14 +40,30 @@ class BrandController extends Controller
         $this->brandDb->create($brand);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return $this->view->generate('brand.edit');
+        $brand = $this->brandDb->findById($id);
+
+        return $this->view->generate('brand.edit', $brand);
     }
 
     public function update($id)
     {
-        var_dump($id);
+        if(isset($_POST['name']) && !empty($_POST['name'])){
+            $name = $_POST['name'];
+        }
+
+        if(isset($_POST['code']) && !empty($_POST['code'])){
+            $code = $_POST['code'];
+        }
+
+        if(isset($_POST['description']) && !empty($_POST['description'])){
+            $description = $_POST['description'];
+        }
+
+        $brand = new Brand($id, $name, $code, $description);
+
+        $this->brandDb->update($brand);
     }
 
 }

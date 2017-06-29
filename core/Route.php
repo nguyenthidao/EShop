@@ -5,14 +5,13 @@ class Route
     {
         $controllerName = 'Main';
         $actionName = 'index';
-
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
         if ( !empty($routes[2]) )
         {
             $controllerName = ucfirst($routes[2]);
         }
-        
+
         if ( !empty($routes[3]) )
         {
             $actionName = $routes[3];
@@ -42,10 +41,17 @@ class Route
         $modelDb = new $modelDbName();
         $controller = new $controllerName($modelDb);
         $action = $actionName;
-        
+
         if(method_exists($controller, $action))
         {
-            $controller->$action();
+
+            if (isset($routes[4]) && !empty($routes[4]) )
+            {
+                $id = $routes[4];
+                $controller->$action($id);
+            }else{
+                $controller->$action();
+            }
         }
         else
         {
