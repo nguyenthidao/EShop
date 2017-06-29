@@ -85,7 +85,7 @@
                         </tr>
                         <?php foreach($data as $brand) :?>
                             <tr>
-                                <td><input type="checkbox" name="checkbox"></td>
+                                <td><input type="checkbox" name="checkbox[]"></td>
                                 <td><?php echo $brand->getName(); ?></td>
                                 <td><?php echo $brand->getCode(); ?></td>
                                 <td><?php echo $brand->getDescription(); ?></td>
@@ -95,7 +95,7 @@
                     </table>
                 </div>
                 <div class="col-lg-12">
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" id="deleteBrand" onclick='deleteBands()'>Delete</button>
                 </div>
                 <div class="col-lg-12">
                     <div class="col-lg-10"></div>
@@ -123,5 +123,25 @@
     </footer>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    function deleteBrand(id) {
+        window.location = '/eshop/brand/delete/' + id;
+    }
+
+    function deleteBands(){
+        var answer = confirm('Are you sure?');
+        var checkList = document.getElementsByName('checkbox[]');
+
+        if (answer){
+            for(var i = 0; i < checkList.length; i++)
+            {
+                if(checkList[i].checked)
+                {
+                    deleteBrand(i);
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>

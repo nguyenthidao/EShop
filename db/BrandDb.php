@@ -56,6 +56,15 @@ class BrandDb extends Connection
         return $result > 0;
     }
 
+    public function delete($id)
+    {
+        $db = $this->connect();
+        $query = "DELETE FROM brands WHERE id = '$id'";
+        $result = $db->exec($query);
+
+        return $result > 0;
+    }
+
     public function find($name)
     {
         $db = $this->connect();

@@ -44,11 +44,10 @@ class Route
 
         if(method_exists($controller, $action))
         {
-
-            if (isset($routes[4]) && !empty($routes[4]) )
+            if (!empty($routes[4]))
             {
-                $id = $routes[4];
-                $controller->$action($id);
+                $controller->$action($routes[4]);
+
             }else{
                 $controller->$action();
             }

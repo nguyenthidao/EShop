@@ -66,4 +66,11 @@ class BrandController extends Controller
         $this->brandDb->update($brand);
     }
 
+    public function delete($id)
+    {
+        $this->brandDb->delete($id);
+
+    }
+
+
 }
