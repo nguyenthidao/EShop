@@ -42,6 +42,7 @@ class BrandController extends Controller
 
     public function edit($id)
     {
+        $id = implode(" ", $id);
         $brand = $this->brandDb->findById($id);
 
         return $this->view->generate('brand.edit', $brand);
@@ -49,6 +50,8 @@ class BrandController extends Controller
 
     public function update($id)
     {
+        $id = implode(" ", $id);
+
         if(isset($_POST['name']) && !empty($_POST['name'])){
             $name = $_POST['name'];
         }
@@ -68,9 +71,7 @@ class BrandController extends Controller
 
     public function delete($id)
     {
+        $id = implode(',', $id);
         $this->brandDb->delete($id);
-
     }
-
-
 }

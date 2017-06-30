@@ -5,6 +5,9 @@ class Route
     {
         $controllerName = 'Main';
         $actionName = 'index';
+        $param = [
+            'id' => []
+        ];
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
         if ( !empty($routes[2]) )
@@ -15,6 +18,11 @@ class Route
         if ( !empty($routes[3]) )
         {
             $actionName = $routes[3];
+        }
+
+        if ( isset($routes[4]) )
+        {
+            $param['id'] = explode(',', $routes[4]);
         }
 
         $modelDbName = $controllerName.'Db';
@@ -44,9 +52,9 @@ class Route
 
         if(method_exists($controller, $action))
         {
-            if (!empty($routes[4]))
+            if (!empty($param['id']))
             {
-                $controller->$action($routes[4]);
+                $controller->$action($param['id']);
 
             }else{
                 $controller->$action();

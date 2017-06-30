@@ -77,7 +77,7 @@
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <th></th>
+                            <th><input type="checkbox" name="checkAll" id="toggle" onclick="checkedAll(this)"></th>
                             <th>Name</th>
                             <th>Code</th>
                             <th>Description</th>
@@ -85,7 +85,7 @@
                         </tr>
                         <?php foreach($data as $brand) :?>
                             <tr>
-                                <td><input type="checkbox" name="checkbox[]"></td>
+                                <td><input type="checkbox" name="checkbox[]" value="<?= $brand->getId()?>"></td>
                                 <td><?php echo $brand->getName(); ?></td>
                                 <td><?php echo $brand->getCode(); ?></td>
                                 <td><?php echo $brand->getDescription(); ?></td>
@@ -130,18 +130,30 @@
 
     function deleteBands(){
         var answer = confirm('Are you sure?');
-        var checkList = document.getElementsByName('checkbox[]');
+        var checkboxes = document.getElementsByName('checkbox[]');
+        var checkedIdList = [];
 
         if (answer){
-            for(var i = 0; i < checkList.length; i++)
+            for(var i = 1; i < checkboxes.length; i++)
             {
-                if(checkList[i].checked)
+                if(checkboxes[i].checked)
                 {
-                    deleteBrand(i);
+                    checkedIdList.push(checkboxes[i].value);
                 }
             }
+            alert(checkedIdList);
+            deleteBrand(checkedIdList);
         }
     }
+
+    function checkedAll(source) {
+        var checkboxes = document.getElementsByName('checkbox[]');
+
+        for (var i = 1; i < checkboxes.length; i++){
+                checkboxes[i].checked = source.checked;
+        }
+    }
+
 </script>
 </body>
 </html>
