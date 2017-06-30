@@ -77,7 +77,7 @@
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <th></th>
+                            <th><input type="checkbox" name="checkAll" id="toggle" onclick="checkedAll(this)"></th>
                             <th>Name</th>
                             <th>Code</th>
                             <th>Description</th>
@@ -85,7 +85,7 @@
                         </tr>
                         <?php foreach($data as $brand) :?>
                             <tr>
-                                <td><input type="checkbox" name="checkbox"></td>
+                                <td><input type="checkbox" name="checkbox[]" value="<?= $brand->getId()?>"></td>
                                 <td><?php echo $brand->getName(); ?></td>
                                 <td><?php echo $brand->getCode(); ?></td>
                                 <td><?php echo $brand->getDescription(); ?></td>
@@ -95,7 +95,7 @@
                     </table>
                 </div>
                 <div class="col-lg-12">
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" id="deleteBrand" onclick='deleteBands()'>Delete</button>
                 </div>
                 <div class="col-lg-12">
                     <div class="col-lg-10"></div>
@@ -123,5 +123,37 @@
     </footer>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    function deleteBrand(id) {
+        window.location = '/eshop/brand/delete/' + id;
+    }
+
+    function deleteBands(){
+        var answer = confirm('Are you sure?');
+        var checkboxes = document.getElementsByName('checkbox[]');
+        var checkedIdList = [];
+
+        if (answer){
+            for(var i = 1; i < checkboxes.length; i++)
+            {
+                if(checkboxes[i].checked)
+                {
+                    checkedIdList.push(checkboxes[i].value);
+                }
+            }
+            alert(checkedIdList);
+            deleteBrand(checkedIdList);
+        }
+    }
+
+    function checkedAll(source) {
+        var checkboxes = document.getElementsByName('checkbox[]');
+
+        for (var i = 1; i < checkboxes.length; i++){
+                checkboxes[i].checked = source.checked;
+        }
+    }
+
+</script>
 </body>
 </html>

@@ -51,7 +51,7 @@
                             <label for="code">code</label>
                             <input type="text" name="code" id="code" class="form-control" value="<?= $brand->getCode() ?>">
                             <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control"  rows="20" cols="50" value="<?= $brand->getDescription() ?>"></textarea>
+                            <textarea name="description" id="description" class="form-control"  rows="20" cols="50" ><?= $brand->getDescription() ?></textarea>
                         </div>
                     </div>
                     <div class="row">

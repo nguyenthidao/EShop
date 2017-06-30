@@ -56,6 +56,21 @@ class BrandDb extends Connection
         return $result > 0;
     }
 
+    public function delete($id)
+    {
+        $db = $this->connect();
+        $query = "UPDATE products SET brands_id = 1 WHERE brands_id IN ($id)";
+        echo $query;
+
+        $db->exec($query);
+        $query = "UPDATE sale_details SET brands_id = 1 WHERE brands_id IN ($id)";
+        $db->exec($query);
+        $query = "DELETE FROM brands WHERE id IN ($id)";
+        $result = $db->exec($query);
+
+        return $result > 0;
+    }
+
     public function find($name)
     {
         $db = $this->connect();
@@ -76,7 +91,7 @@ class BrandDb extends Connection
             $name = $result['name'];
             $description = $result['description'];
 
-            $brand = new Brand($id, $code, $name, $description);
+            $brand = new Brand($id, $name, $code, $description);
 
             return $brand;
         }
