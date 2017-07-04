@@ -17,7 +17,7 @@ class BrandDb extends Connection
             $name = $brand["name"];
             $description = $brand["description"];
 
-            $brandList[] = new Brand($id, $code, $name, $description);
+            $brandList[] = new Brand($id, $name, $code, $description);
         }
 
         return $brandList;
@@ -60,7 +60,6 @@ class BrandDb extends Connection
     {
         $db = $this->connect();
         $query = "UPDATE products SET brands_id = 1 WHERE brands_id IN ($id)";
-        echo $query;
 
         $db->exec($query);
         $query = "UPDATE sale_details SET brands_id = 1 WHERE brands_id IN ($id)";
