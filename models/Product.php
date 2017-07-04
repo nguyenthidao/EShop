@@ -13,8 +13,9 @@ class Product{
     private $wireless;
     private $description;
     private $brands_id;
+    private $brands_name;
 
-    public function __construct($id, $name, $color, $price, $quality, $ram, $keyboard, $display, $hard_drive, $wireless, $description, $brands_id)
+    public function __construct($id, $name, $color, $price, $quality, $ram, $keyboard, $display, $hard_drive, $wireless, $description, $brands_id, $brands_name = NULL)
     {
         $this->id = $id;
         $this->name = $name;
@@ -28,6 +29,7 @@ class Product{
         $this->wireless = $wireless;
         $this->description = $description;
         $this->brands_id = $brands_id;
+        $this->brands_name = $brands_name;
     }
 
     public function getId()
@@ -148,5 +150,15 @@ class Product{
     public function setBrandsId($brands_id)
     {
         $this->brands_id = $brands_id;
+    }
+
+    public function getBrandsName()
+    {
+        return $this->brands_name;
+    }
+
+    public function setBrandsName($brands_name)
+    {
+        $this->brands_name = $brands_name;
     }
 }

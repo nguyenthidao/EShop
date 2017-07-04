@@ -43,8 +43,8 @@
             </div>
             <ul class="nav nav-pills nav-stacked menu">
                 <li role="presentation" class="active"><a href="/eshop/product/listall">Product</a></li>
-                <li role="presentation"><a href="/eshop/user/list">User</a></li>
-                <li role="presentation"><a href="/eshop/brand/list">Brand</a></li>
+                <li role="presentation"><a href="/eshop/user/listall">User</a></li>
+                <li role="presentation"><a href="/eshop/brand/listall">Brand</a></li>
             </ul>
         </aside>
         <section class="col-lg-10">
@@ -111,8 +111,6 @@
                             <li><a href="#">1 <span class="sr-only">(current)</span></a></li>
                             <li class="active"><a href="#">2 <span class="sr-only">(current)</span></a></li>
                             <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
                             <li>
                                 <a href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
