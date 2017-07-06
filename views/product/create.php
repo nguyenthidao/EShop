@@ -1,4 +1,15 @@
-<?php $brands = $data; ?>
+<?php
+    $brands = $data['brands'];
+
+    if(! empty($data['errors'])){
+        $errors = $data['errors'];
+    }
+
+    if(! empty($data['product'])){
+        $product = $data['product'];
+    }
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,40 +56,54 @@
             <div class="row">
                 <form class="col-lg-12" method="POST" action="/eshop/product/store">
                     <div class="row">
-                        <div class="form-group col-lg-7">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
-                            <label for="color">Color</label>
-                            <input type="text" name="color" id="color" class="form-control">
-                            <label for="price">Price</label>
-                            <input type="text" name="price" id="price" class="form-control">
-                            <label for="quality">Quality</label>
-                            <input type="text" name="quality" id="quality" class="form-control">
-                            <label for="ram">Ram</label>
-                            <input type="text" name="ram" id="ram" class="form-control">
-                            <label for="keyboard">Keyboard</label>
-                            <input type="text" name="keyboard" id="keyboard" class="form-control">
-                            <label for="display">Display</label>
-                            <input type="text" name="display" id="display" class="form-control">
-                            <label for="hard_drive">Hard Drive</label>
-                            <input type="text" name="hard_drive" id="hard_drive" class="form-control">
-                            <label for="wireless">Wireless</label>
-                            <input type="text" name="wireless" id="wireless" class="form-control">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control"  rows="3" cols="50" ></textarea>
-                            <label>Brand Name</label>
-                            <select name="brand" class="form-control">
-                                <?php foreach($brands as $brand) :?>
-                                    <option value="<?= $brand->getId() ?>"><?= $brand->getName() ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" class="form-control" value="<?php if(isset($product)){ echo $product['name']; } ?>">
+                                    <label for="color">Color</label>
+                                    <input type="text" name="color" id="color" class="form-control" value="<?php if(isset($product)){ echo $product['color']; } ?>">
+                                    <label for="price">Price</label>
+                                    <input type="text" name="price" id="price" class="form-control" value="<?php if(isset($product)){ echo $product['price']; } ?>">
+                                    <label for="quality">Quality</label>
+                                    <input type="text" name="quality" id="quality" class="form-control" value="<?php if(isset($product)){ echo $product['quality']; } ?>">
+                                    <label for="ram">Ram</label>
+                                    <input type="text" name="ram" id="ram" class="form-control" value="<?php if(isset($product)){ echo $product['ram']; } ?>">
+                                    <label for="keyboard">Keyboard</label>
+                                    <input type="text" name="keyboard" id="keyboard" class="form-control" value="<?php if(isset($product)){ echo $product['keyboard']; } ?>">
+                                    <label for="display">Display</label>
+                                    <input type="text" name="display" id="display" class="form-control" value="<?php if(isset($product)){ echo $product['display']; } ?>">
+                                    <label for="hard_drive">Hard Drive</label>
+                                    <input type="text" name="hard_drive" id="hard_drive" class="form-control" value="<?php if(isset($product)){ echo $product['hard_drive']; } ?>">
+                                    <label for="wireless">Wireless</label>
+                                    <input type="text" name="wireless" id="wireless" class="form-control" value="<?php if(isset($product)){ echo $product['wireless']; } ?>">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" id="description" class="form-control"  rows="3" cols="50" > <?php if(isset($product)){ echo $product['description']; } ?> </textarea>
+                                    <label>Brand Name</label>
+                                    <select name="brand" class="form-control">
+                                        <?php foreach($brands as $brand) :?>
+                                            <option value="<?= $brand->getId() ?>"><?= $brand->getName() ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <button type="submit" class="btn btn-default col-lg-1">Submit</button>
+                                <div class="col-lg-1"></div>
+                                <button type="reset" class="btn btn-primary col-lg-1">Reset</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-2"></div>
-                        <button type="submit" class="btn btn-default col-lg-1">Submit</button>
-                        <div class="col-lg-1"></div>
-                        <button type="reset" class="btn btn-primary col-lg-1">Reset</button>
+                        <div class="col-lg-4">
+                            <?php if(isset($errors)) :?>
+                                <?php foreach ($errors as $key => $value):?>
+                                    <div class="list-group">
+                                        <span class="list-group-item list-group-item-info"><?= $key ?></span>
+                                        <p class="list-group-item list-group-item-danger"><?= $value ?></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </form>
             </div>
