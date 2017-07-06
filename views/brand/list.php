@@ -147,7 +147,6 @@
                 checkboxes[i].checked = source.checked;
         }
     }
-
 </script>
 </body>
 </html>

@@ -1,3 +1,8 @@
+<?php
+    if(!empty($data)){
+        $errors = $data;
+    }
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -44,20 +49,34 @@
             <div class="row">
                 <form class="col-lg-12" method="POST" action="/eshop/brand/store">
                     <div class="row">
-                        <div class="form-group col-lg-7">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
-                            <label for="code">code</label>
-                            <input type="text" name="code" id="code" class="form-control">
-                            <label for="description">Description</label>
-                            <textarea name="description" id="description" class="form-control"  rows="20" cols="50"></textarea>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" class="form-control">
+                                    <label for="code">code</label>
+                                    <input type="text" name="code" id="code" class="form-control">
+                                    <label for="description">Description</label>
+                                    <textarea name="description" id="description" class="form-control"  rows="20" cols="50"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <button type="submit" class="btn btn-default col-lg-1">Submit</button>
+                                <div class="col-lg-2"></div>
+                                <button type="reset" class="btn btn-primary col-lg-1">Reset</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-2"></div>
-                        <button type="submit" class="btn btn-default col-lg-1">Submit</button>
-                        <div class="col-lg-1"></div>
-                        <button type="reset" class="btn btn-primary col-lg-1">Reset</button>
+                        <div class="col-lg-4">
+                            <?php if(isset($errors)) :?>
+                                <?php foreach ($errors as $key => $value):?>
+                                    <div class="list-group">
+                                        <span class="list-group-item list-group-item-info"><?= $key ?></span>
+                                        <p class="list-group-item list-group-item-danger"><?= $value ?></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </form>
             </div>
