@@ -10,60 +10,79 @@
 <body>
 <div class="container-fluid">
     <header class="row">
-        <div class="col-lg-12 header-top">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Eshop Manage</div>
-            </div>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-3">
+            <a href="#">
+                <img class="" src="/eshop/assets/images/149763463262282.png" alt="...">
+            </a>
+            <hr>
         </div>
+        <div class="col-lg-5"></div>
     </header>
     <div class="row">
-        <aside class="col-lg-2">
-            <div class="row">
-                <div class="col-lg-5">
-                    <img src="/eshop/assets/images/ninja1.jpg" alt="..." class="img-thumbnail">
-                </div>
-                <div class="col-lg-7">
-                    <div class="col-lg-12">
-                        <span class="glyphicon glyphicon-cog"></span>
-                        <span>Update profile</span>
-                    </div>
-                    <div class="col-lg-12">
-                        <span class="glyphicon glyphicon-share-alt"></span>
-                        <span>Logout</span>
-                    </div>
-                </div>
-            </div>
+        <aside class="col-lg-4">
         </aside>
-
-        <section class="col-lg-10">
-            <div class="row">
-                <div class="col-lg-7">
-                    <h3 class="text-center">Create a user</h3>
+        <section class="col-lg-3">
+            <form class="form-horizontal" method="post" action="/eshop/user/store">
+                <div class="form-group">
+                    <h1 class="text-left">Create account</h1>
                 </div>
-            </div>
-            <div class="row">
-                <form class="col-lg-12" method="POST" action="/eshop/user/store">
+                <div class="form-group">
+                    <label for="name">Your name</label>
+                    <input type="text" name="name" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="form-group">
                     <div class="row">
-                        <div class="form-group col-lg-7">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" class="form-control">
-                            <label for="code">Password</label>
-                            <input type="text" name="password" id="password" class="form-control">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" class="form-control">
+                        <label for="password" class="col-lg-6 text-left">Password</label>
+                    </div>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="At least 6 characters">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="re_password" class="col-lg-6 text-left">Re-enter password</label>
+                    </div>
+                    <input type="password"  name="re_password" class="form-control" id="re_password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="col-lg-12 btn btn-warning">Create your Eshop account</button>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-8 text-left">
+                            <p class="help-block">By creating an account, you agree to Amazon's
+                                <a href="#conditionuse">Conditions of Use</a> and
+                                <a href="#privacynote">Privacy Notice</a>.
+                            </p>
                         </div>
                     </div>
+                    <hr>
+                </div>
+                <div class="form-group">
                     <div class="row">
-                        <div class="col-lg-2"></div>
-                        <button type="submit" class="btn btn-default col-lg-1">Submit</button>
-                        <div class="col-lg-1"></div>
-                        <button type="reset" class="btn btn-primary col-lg-1">Reset</button>
+                        <div class="col-lg-8 text-left">
+                            <p class="help-block">
+                                Already have an account? <a href="/eshop/user/signin">Sign in</a>
+                            </p>
+                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
+        <aside class="col-lg-5">
+
+        </aside>
     </div>
     <footer class="row">
+        <hr>
+        <div class="col-lg-4"></div>
+        <div class="col-lg-3">
+            <h4 class="text-center"><small>© 1994-2017, Eshop.vn</small></h4>
+        </div>
+        <div class="col-lg-5"></div>
     </footer>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

@@ -16,7 +16,7 @@ class UserController extends Controller
         $this->view->generate("user.list", $userList);
     }
 
-    public function create()
+    public function register()
     {
         $this->view->generate('user.register');
     }
@@ -28,10 +28,15 @@ class UserController extends Controller
         $name = $_POST['name'];
         $password = $_POST['password'];
         $email = $_POST['email'];
+
         $role = ROLE_CUSTOMER;
 
-        $user = new User(1, $name, $password, $role, $email,'','',null,'',0);
+        $user = new User(1, $name, $password, $role, $email,0);
         $this->userDb->create($user);
+    }
 
+    public function signin()
+    {
+        $this->view->generate('user.signin');
     }
 }

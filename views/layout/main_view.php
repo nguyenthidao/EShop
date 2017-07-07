@@ -60,9 +60,10 @@
                     <div class="jumbotron">
                         <h3 class="text-center">Welcome</h3>
                         <p class="text-center"><small>Sign in for the best experience</small></p>
-                        <p class="text-center"><a class="btn btn-warning btn-lg" href="#" role="button">Sign in securely</a></p>
+                        <p class="text-center"><a class="btn btn-warning btn-lg" href="/eshop/user/signin" role="button">Sign in securely</a></p>
+                        <hr>
                         <div>
-                            <p class="text-center"><small>New to Eshop? <a class="" href="#">Start here</a></small></p>
+                            <p class="text-center"><small>New to Eshop? <a class="" href="/eshop/user/register">Start here</a></small></p>
                         </div>
                     </div>
                 </article>
