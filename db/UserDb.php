@@ -18,13 +18,9 @@ class UserDb extends Connection
             $password = $user['password'];
             $role = $user['role'];
             $email = $user['email'];
-            $address = $user['address'];
-            $city = $user['city'];
-            $birthday = $user['birthday'];
-            $phone = $user['phone'];
             $status = $user['status'];
 
-            $userList[] = new User($id, $name, $password, $role, $email, $address, $city, $birthday, $phone, $status);
+            $userList[] = new User($id, $name, $password, $role, $email, $status);
         }
 
         return $userList;

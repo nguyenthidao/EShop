@@ -72,15 +72,17 @@
                     </div>
                 </div>
                 <div class="col-lg-12 add-product">
-                    <a class="btn btn-primary" href="/eshop/brand/create">Add new user</a>
+                    <a class="btn btn-primary" href="/eshop/brand/register">Add new user</a>
                 </div>
                 <div class="col-lg-12 table-responsive">
                     <table class="table table-bordered">
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Code</th>
-                            <th>Description</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                         <?php foreach($data as $user) :?>
@@ -90,10 +92,6 @@
                                 <td><?php echo $user->getPassword(); ?></td>
                                 <td><?php echo $user->getRole(); ?></td>
                                 <td><?php echo $user->getEmail(); ?></td>
-                                <td><?php echo $user->getAddress(); ?></td>
-                                <td><?php echo $user->getCity(); ?></td>
-                                <td><?php echo $user->getBirthday(); ?></td>
-                                <td><?php echo $user->getPhone(); ?></td>
                                 <td><?php echo $user->getStatus(); ?></td>
                                 <td><a class="btn btn-info" href="/eshop/brand/edit/<?= $user->getId() ?>">Edit</a></td>
                             </tr>
