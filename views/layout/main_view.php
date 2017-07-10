@@ -39,9 +39,19 @@
                     </ul>
                 </nav>
                 <div class="col-lg-2">
-                    <div class="cart">
-                        <span class="badge">42</span>
-                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart
+                    <div class="row">
+                        <div class="col-lg-2 cart">
+                            <span class="badge">42</span>
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Cart
+                        </div>
+                        <div class="col-lg-3">
+                            <?php
+                                if (isset($_SESSION['email']) && $_SESSION['email']){
+                                    echo 'Hello '.$_SESSION['email']."<br/>";
+                                    echo '<a href="">Logout</a>';
+                                }
+                            ?>
+                        </div>
                     </div>
                 </div>
             </div>

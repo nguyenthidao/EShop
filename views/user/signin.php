@@ -23,20 +23,20 @@
         <aside class="col-lg-4">
         </aside>
         <section class="col-lg-3">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/eshop/user/login" method="POST">
                 <div class="form-group">
                     <h1 class="text-left">Sign in</h1>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                 </div>
                 <div class="form-group">
                     <div class="row">
                         <label for="password" class="col-lg-6 text-left">Password</label>
                         <a href="#" class="col-lg-6 text-right">Forgot your password?</a>
                     </div>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="col-lg-12 btn btn-warning">Sign in</button>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="col-lg-12 btn btn-default">Create your Eshop account</button>
+                    <a href="/eshop/user/register" class="col-lg-12 btn btn-default">Create your Eshop account</a>
                 </div>
             </form>
         </section>
