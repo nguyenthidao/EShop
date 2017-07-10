@@ -34,9 +34,17 @@ class UserDb extends Connection
         $role = $user->getRole();
         $email = $user->getEmail();
         $query = "INSERT INTO users(name, password, role, email) VALUES('$name', '$password', $role, '$email')";
-        var_dump($query);
         $result = $db->exec($query);
 
         return $result >= 0;
+    }
+
+    public function findUser($email, $password)
+    {
+        $db = $this->connect();
+        $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+        $result = $db->query($query);
+
+        return $result->rowCount() > 0;
     }
 }
