@@ -189,8 +189,8 @@ class ProductController extends Controller
         $errors = [];
         $nameError = $validator->text($name);
         $colorError = $validator->text($color);
-        $priceError = $validator->number($price);
-        $qualityError = $validator->number($quality);
+//        $priceError = $validator->number($price);
+//        $qualityError = $validator->number($quality);
         $ramError = $validator->text($ram);
         $keyboardError = $validator->text($keyboard);
         $displayError = $validator->text($display);
